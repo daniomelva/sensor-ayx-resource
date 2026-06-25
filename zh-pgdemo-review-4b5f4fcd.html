@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pg模拟器 · 快速识别与使用指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fff1e0 0%, #fce4d6 40%, #f8d5c0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      line-height: 1.7;
+      color: #3d2c1f;
+    }
+
+    .page-wrap {
+      max-width: 980px;
+      width: 100%;
+    }
+
+    /* 白色内容卡片 — 暖白柔和 */
+    .card {
+      background: rgba(255, 250, 245, 0.85);
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 2.5rem 2.8rem;
+      box-shadow: 0 12px 28px rgba(130, 70, 30, 0.08), 0 2px 8px rgba(180, 100, 40, 0.04);
+      transition: box-shadow 0.2s ease;
+      margin-bottom: 2.5rem;
+      border: 1px solid rgba(255, 235, 215, 0.5);
+    }
+
+    .card:hover {
+      box-shadow: 0 16px 32px rgba(130, 70, 30, 0.10);
+    }
+
+    /* hero 区 — 突出且留白 */
+    .hero {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #4f3420;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.2rem;
+      color: #7a5d44;
+      max-width: 540px;
+      margin: 0 auto 1.8rem;
+      font-weight: 380;
+    }
+
+    .hero .lead {
+      font-size: 1.05rem;
+      color: #5f4632;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero .lead a {
+      font-weight: 500;
+    }
+
+    /* 链接样式：圆角按钮感 */
+    a {
+      color: #b25f2c;
+      text-decoration: none;
+      background: rgba(230, 160, 100, 0.12);
+      padding: 0.1em 0.6em;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.15s;
+      font-weight: 440;
+      border: 1px solid transparent;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    a:hover {
+      background: rgba(200, 120, 50, 0.2);
+      color: #8b4e22;
+      border-color: rgba(180, 100, 50, 0.2);
+    }
+
+    /* 标题与分组 */
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 470;
+      letter-spacing: -0.01em;
+      color: #4a3422;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #eddccb;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 460;
+      color: #5d4430;
+      margin: 1.4rem 0 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    .feature-item {
+      background: rgba(252, 242, 233, 0.6);
+      border-radius: 24px;
+      padding: 1.2rem 1.5rem;
+      border-left: 6px solid #e0b38c;
+      transition: transform 0.1s ease;
+    }
+
+    .feature-item strong {
+      color: #4f3420;
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .feature-item p {
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .scenario-list {
+      list-style: none;
+      margin: 1.2rem 0;
+    }
+
+    .scenario-list li {
+      padding: 0.4rem 0;
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .scenario-list li::before {
+      content: "·";
+      position: absolute;
+      left: 0.2rem;
+      color: #b87a4e;
+      font-weight: bold;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item .question {
+      font-weight: 530;
+      color: #4f3420;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .answer {
+      color: #5f4a37;
+      margin-left: 0.6rem;
+    }
+
+    .bottom-links {
+      text-align: center;
+      padding: 1.2rem 0 0.8rem;
+      border-top: 1px solid #e6d3c2;
+      margin-top: 0.8rem;
+    }
+
+    .bottom-links a {
+      margin: 0 0.4rem 0.4rem;
+      padding: 0.3rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .footnote {
+      font-size: 0.9rem;
+      color: #7a624b;
+      text-align: center;
+      margin-top: 1.6rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 720px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 24px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .hero .tagline {
+        font-size: 1.05rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero .lead {
+        font-size: 0.95rem;
+      }
+      .card {
+        padding: 1.5rem 0.9rem;
+      }
+      a {
+        padding: 0.1em 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- Hero 区：快速识别网站用途 -->
+  <div class="card hero">
+    <h1>pg模拟器 · 是什么</h1>
+    <div class="tagline">一个专为快速理解与试用设计的演示站点</div>
+    <p class="lead">
+      如果你在寻找一个能直观展示 PostgreSQL 模拟环境的实用页面，<a href="https://zh-pgdemo.com">pg模拟器</a> 提供了核心功能浏览与交互示例。没有冗长的文档，打开即可看见关键操作路径。
+    </p>
+  </div>
+
+  <!-- 优势区：简洁说明三个突出点 -->
+  <div class="card">
+    <h2>为什么值得看一眼</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <strong>即看即用</strong>
+        <p>无需配置本地数据库，页面内已集成模拟查询与结果预览，适合快速验证想法。</p>
+      </div>
+      <div class="feature-item">
+        <strong>聚焦常用 SQL</strong>
+        <p>覆盖 SELECT、JOIN、聚合等高频场景，省去翻阅手册的时间。</p>
+      </div>
+      <div class="feature-item">
+        <strong>轻量演示</strong>
+        <p>所有逻辑都在前端完成，打开即运行，关闭即消失，没有环境残留。</p>
+      </div>
+      <div class="feature-item">
+        <strong>示例数据</strong>
+        <p>内置了几组典型业务表结构，方便直接体验查询效果。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 说明区：用户怎么用、典型场景 -->
+  <div class="card">
+    <h2>使用说明与场景举例</h2>
+    <p>进入 <a href="https://zh-pgdemo.com">pg模拟器</a> 后，你将看到左侧为输入区，右侧为结果面板。你可以在输入框中书写 SQL 语句，点击运行后立即看到模拟返回的数据表格。所有操作都不需要网络请求，完全在浏览器内完成。</p>
+    
+    <h3>适合这样的时刻</h3>
+    <ul class="scenario-list">
+      <li>你想回忆某个聚合函数的写法，但不想打开本地数据库。</li>
+      <li>你正在学习 SQL 联接，需要一组干净的小数据来验证理解。</li>
+      <li>你在写技术文章，需要生成简单的查询结果截图作为示例。</li>
+      <li>你只是想快速确认某个语法在 PostgreSQL 风格下的表现。</li>
+    </ul>
+
+    <p style="margin-top: 1rem;">整个页面仅用于演示和学习，不会存储你输入的 SQL，也没有后台交互。放心使用。</p>
+  </div>
+
+  <!-- FAQ 摘要：三个常见疑问 -->
+  <div class="card">
+    <h2>常见疑问 · 摘要</h2>
+    <div class="faq-item">
+      <div class="question">模拟器支持所有 PostgreSQL 语法吗？</div>
+      <div class="answer">不支持全部。它覆盖了最常用的 DQL 子集（SELECT、WHERE、GROUP BY、HAVING、JOIN、子查询等），以及部分常用函数。完整语法请参考官方文档。</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">数据会保存到服务器吗？</div>
+      <div class="answer">不会。所有数据都在你本地浏览器中模拟，关闭页面后即消失。没有注册、没有上传。</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">移动端能用吗？</div>
+      <div class="answer">可以。页面做了基本的响应式适配，在手机浏览器上也能运行查询，但建议在平板或电脑上获得更好的输入体验。</div>
+    </div>
+    <p style="font-size: 0.95rem; margin-top: 0.8rem;">更多细节可直接访问 <a href="https://zh-pgdemo.com">pg模拟器</a> 页面查看。</p>
+  </div>
+
+  <!-- 底部链接区域 -->
+  <div class="card" style="padding: 1.6rem 2rem;">
+    <div class="bottom-links">
+      <a href="https://zh-pgdemo.com">pg模拟器</a>
+      <span style="color: #b5957a; margin: 0 0.3rem;">·</span>
+      <a href="https://zh-pgdemo.com" style="background: rgba(210, 140, 80, 0.08);">pg模拟器</a>
+      <span style="color: #b5957a; margin: 0 0.3rem;">·</span>
+      <a href="https://zh-pgdemo.com" style="background: rgba(210, 140, 80, 0.08);">pg模拟器</a>
+    </div>
+    <div class="footnote">
+      一个轻量的 PostgreSQL 模拟演示页面 · 用于快速识别与体验
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
