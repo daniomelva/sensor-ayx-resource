@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>简明指南 · 买球站使用说明与提示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fb;
+            color: #1e2b3c;
+        }
+
+        /* 深色头图 —— 偏知识质感的暗调渐变 */
+        .hero {
+            background: linear-gradient(150deg, #0b1a2b 0%, #1d2e42 45%, #263b4e 100%);
+            color: #eef2f6;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #cbd6e6;
+            max-width: 640px;
+            margin: 0 auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 1.2rem;
+        }
+
+        .hero .meta-tag {
+            display: inline-block;
+            margin-top: 1.8rem;
+            padding: 0.3rem 1rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            font-size: 0.8rem;
+            color: #b5c8e0;
+            letter-spacing: 1px;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.5rem;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s;
+        }
+
+        .section:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: #1d2e42;
+            border-left: 4px solid #2e6a9f;
+            padding-left: 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: #2d3e51;
+            font-size: 1rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 强调色链接 —— 保持克制、有辨识度 */
+        a {
+            color: #1f6a9f;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(31, 106, 159, 0.25);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #0c4b78;
+            border-bottom-color: #0c4b78;
+        }
+
+        /* 卡片式亮点组 */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.6rem 0 0.4rem;
+        }
+
+        .highlight-item {
+            background: #f8faff;
+            border-radius: 12px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #e9edf4;
+        }
+
+        .highlight-item .icon-symbol {
+            font-size: 1.4rem;
+            display: block;
+            margin-bottom: 0.3rem;
+            color: #2e6a9f;
+        }
+
+        .highlight-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #1b2a3c;
+        }
+
+        .highlight-item p {
+            font-size: 0.9rem;
+            color: #3d5269;
+            margin: 0;
+        }
+
+        .callout {
+            background: #eef4fc;
+            border-left: 4px solid #2e6a9f;
+            padding: 1rem 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.4rem 0 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .callout strong {
+            color: #1b3b5a;
+        }
+
+        /* FAQ 摘要: 简洁折叠感 */
+        .faq-summary {
+            margin-top: 1rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e6ecf3;
+            padding: 0.8rem 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #1b2e42;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            color: #3c526b;
+            padding-left: 0.4rem;
+        }
+
+        .footnote {
+            margin-top: 2.4rem;
+            font-size: 0.9rem;
+            color: #5d738b;
+            border-top: 1px solid #dde3ed;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #dde3ed;
+            margin: 1.8rem 0;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2.5rem 1rem 2.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .section {
+                padding: 1.5rem 1.2rem;
+            }
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+            .content {
+                padding: 1.8rem 1rem 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 4.2rem 2rem 3.5rem;
+            }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>简明指南与访问提醒</h1>
+    <p class="subhead">关于买球站的产品思路、使用场景与注意事项 —— 保持清晰与理性</p>
+    <span class="meta-tag">知识型 · 产品说明</span>
+</header>
+
+<main class="content">
+
+    <!-- 介绍：摘要式定位 -->
+    <section class="section">
+        <h2>从工具视角理解买球站</h2>
+        <p>无论是关注赛事动态还是希望参与其中，选择一个清晰、可靠的平台是第一步。<a href="https://down-sportbet.com">买球站</a>所提供的，是一套围绕体育赛事预测与资讯整合的界面工具，并非单纯的下注入口，而是更偏向信息聚合与操作引导。</p>
+        <p>本文从实际使用角度出发，整理其核心特点、适用场景，以及值得留意的访问细节。以下内容不构成任何投资或赌博建议，仅作为产品功能说明。</p>
+    </section>
+
+    <!-- 亮点卡片组 -->
+    <section class="section">
+        <h2>功能亮点速览</h2>
+        <div class="highlights-grid">
+            <div class="highlight-item">
+                <span class="icon-symbol">📋</span>
+                <h3>赛事数据引导</h3>
+                <p>提供多联赛盘口及数据概览，帮助使用者快速定位感兴趣的比赛。</p>
+            </div>
+            <div class="highlight-item">
+                <span class="icon-symbol">⚙️</span>
+                <h3>界面简洁可定制</h3>
+                <p>主功能区划分明确，支持筛选偏好联赛，减少无效信息干扰。</p>
+            </div>
+            <div class="highlight-item">
+                <span class="icon-symbol">🔐</span>
+                <h3>访问环境提示</h3>
+                <p>平台本身不存储敏感账户信息，建议使用前了解地区政策与网络规范。</p>
+            </div>
+            <div class="highlight-item">
+                <span class="icon-symbol">📱</span>
+                <h3>多端适配</h3>
+                <p>桌面与移动设备均保持良好浏览结构，无需额外下载客户端。</p>
+            </div>
+        </div>
+        <div class="callout">
+            <strong>一句话概括：</strong> 如果你在寻找一个整合赛事参考与操作路径的工具，<a href="https://down-sportbet.com">买球站</a>可以作为信息起点之一，但请务必结合自身判断。
+        </div>
+    </section>
+
+    <!-- 使用建议与场景 -->
+    <section class="section">
+        <h2>常见使用场景与建议</h2>
+        <p><strong>赛前参考场景：</strong> 对于赛前希望快速比较不同盘口数据的使用者，买球站提供了相对规整的对照视图。建议先利用筛选功能缩小范围，再逐一细看。</p>
+        <p><strong>资讯补充场景：</strong> 除了基础赔率显示，页面内嵌的统计摘要可辅助理解近期走势。但需注意，所有数据均有滞后性，不应作为唯一决策依据。</p>
+        <p><strong>访问注意：</strong> 由于网络环境与地区监管差异，部分用户可能遇到访问延迟。建议使用稳定的网络连接，并提前了解本地对于体育竞猜类网站的相关规定。</p>
+    </section>
+
+    <!-- 可信但克制的访问说明 + FAQ 摘要 -->
+    <section class="section">
+        <h2>访问须知与常见疑问</h2>
+        <div class="faq-summary">
+            <div class="faq-item">
+                <div class="faq-question">▸ 买球站是否需要注册才能浏览？</div>
+                <div class="faq-answer">基础赛事数据与盘口展示通常无需登录，但部分深度功能或个性化设置可能要求建立账户，具体以实际页面提示为准。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▸ 平台数据和实时赛况同步吗？</div>
+                <div class="faq-answer">数据更新频率取决于上游信息源，存在一定延迟，尤其在比赛进行期间可能出现分钟级差异，建议交叉核对。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">▸ 使用过程中需要注意什么？</div>
+                <div class="faq-answer">请保持理性参与，切勿投入超过自身承受能力的资金。任何形式的体育竞猜都存在风险，本站仅提供工具说明。</div>
+            </div>
+        </div>
+        <p style="margin-top: 1.2rem;">如果需要进一步了解平台结构，可以直接浏览 <a href="https://down-sportbet.com">买球站</a> 首页。建议首次访问时花几分钟熟悉各个模块的位置，以便后续更高效地使用。</p>
+    </section>
+
+    <hr>
+
+    <div class="footnote">
+        <p>本文档为产品功能说明，不构成任何形式的诱导或承诺。请根据个人情况审慎决策，并遵守当地法律法规。<br>最后更新：2025·04  /  简明指南</p>
+    </div>
+
+</main>
+
+</body>
+</html>
